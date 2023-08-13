@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include <mruby.h>
+#include <mruby/compile.h>
 #include <mruby/variable.h>
 #include <mruby/string.h>
 
@@ -77,7 +78,6 @@ int main(int argc, char* argv[]) {
                        "human1.greet(human2)\n"
                        "human2.greet(human1)\n";
 
-    // FIXME: Warning: implicit function declaration?
     mrb_load_string(mrb, code);
 
     mrb_close(mrb);
