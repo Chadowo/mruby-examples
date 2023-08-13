@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.7)
 
 project(mruby-examples)
 
+# For all targets
+add_compile_options(-std=c99 -pedantic -Wall -Wshadow -Wpointer-arith 
+                    -Wcast-qual -Wstrict-prototypes -O2)
+
 set(EXAMPLES
   hello-world
   hello-file
