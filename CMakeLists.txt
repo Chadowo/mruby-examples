@@ -22,10 +22,6 @@ foreach(EXAMPLE ${EXAMPLES})
   file(COPY ${RUBY_FILES}
        DESTINATION ${CMAKE_SOURCE_DIR}/bin/${EXAMPLE})
 
-  # MRuby specific TODO: This is hardcoded for my pc
-  target_include_directories(${EXAMPLE} PUBLIC /home/chadow/.asdf/installs/ruby/mruby-3.2.0/include/)
-  target_link_directories(${EXAMPLE} PUBLIC /home/chadow/.asdf/installs/ruby/mruby-3.2.0/lib)
-
   target_link_libraries(${EXAMPLE} PUBLIC -lmruby -lm)
 endforeach()
 
