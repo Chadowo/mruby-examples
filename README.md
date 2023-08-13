@@ -20,11 +20,11 @@ That will install all the development headers for MRuby.
 
 In the root of this repo:
 
-`mkdir build && cd build`
-
-`cmake ..`
-
-`make`
+```
+mkdir build && cd build
+cmake ..
+make
+```
 
 The final executables will be found in the bin/ directory relative to the repo
 root.
