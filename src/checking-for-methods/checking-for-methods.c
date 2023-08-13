@@ -15,7 +15,10 @@ static int check_method(mrb_state* mrb, char* method_name) {
 }
 
 mrb_value example_method(mrb_state* mrb, mrb_value self) {
+    
     // Empty method...
+
+    return mrb_nil_value();
 }
 
 int main(int argc, char* argv[]) {
