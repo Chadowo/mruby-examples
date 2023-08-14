@@ -45,3 +45,11 @@ Examples found here in this project:
     Try to find methods in Ruby land
 - using-data/  
     Encapsulate C-data in a ruby object
+
+## Credits
+
+Credits where due, here are some helpful articles/post/resources that helped 
+me to learn how to use MRuby:
+
+- [Executing Ruby code with MRuby](https://mruby.org/docs/articles/executing-ruby-code-with-mruby.html)
+- [MRuby GUI series](https://dev.to/roryo/a-new-smalltalk-style-environment-for-ruby-5f5c)
