@@ -27,27 +27,28 @@ int main(int argc, char* argv[]) {
     // TODO: Instance variables
 
     // Class variables
-    struct RClass* foobar_klass = mrb_define_class(mrb, "Foobar", mrb->object_class);
+    struct RClass* foobarKlass = mrb_define_class(mrb, "Foobar", mrb->object_class);
     mrb_mod_cv_set(mrb,
-                   foobar_klass,
+                   foobarKlass,
                    mrb_intern_lit(mrb, "@@baz"),
                    mrb_float_value(mrb, 50.55));
 
     // Module variables (AKA class variables but on a module)
-    struct RClass* barfoo_module = mrb_define_module(mrb, "Barfoo");
+    // (Excellent naming by the way)
+    struct RClass* barfooModule = mrb_define_module(mrb, "Barfoo");
 
     mrb_mod_cv_set(mrb,
-                   barfoo_module,
+                   barfooModule,
                    mrb_intern_lit(mrb, "@@quux"),
                    mrb_float_value(mrb, 15.0));
 
     // We can also get the variables we defined, for example; getting the
     // module variable @@quux
-    mrb_value quux_cvar = mrb_cv_get(mrb,
-                                     mrb_obj_value(barfoo_module),
+    mrb_value quuxCvar = mrb_cv_get(mrb,
+                                     mrb_obj_value(barfooModule),
                                      mrb_intern_lit(mrb, "@@quux"));
 
-    printf("@@quux: %f\n", mrb_float(quux_cvar));
+    printf("@@quux: %f\n", mrb_float(quuxCvar));
 
     mrb_close(mrb);
     return 0;
