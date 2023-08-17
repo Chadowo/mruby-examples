@@ -1,0 +1,7 @@
+---
+Checks: "-llvm-*,
+         -modernize-*,
+         -readability-*"
+WarningsAsErrors: 'true'
+HeaderFilterRegex: ''
+FormatStyle: none
