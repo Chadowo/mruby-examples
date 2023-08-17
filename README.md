@@ -25,7 +25,7 @@ cmake ..
 make
 ```
 
-The final executables will be found in the bin/ directory relative to the repo
+The final executables will be found in the `bin/` directory relative to the repo
 root.
 
 ## Summary
