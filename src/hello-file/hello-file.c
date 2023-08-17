@@ -12,18 +12,18 @@ int main(int argc, char *argv[]) {
     }
 
     // Open our file
-    FILE* ruby_file = fopen("main.rb", "r");
-    if(!ruby_file) {
+    FILE* rubyFile = fopen("main.rb", "r");
+    if(!rubyFile) {
         fprintf(stderr,
                 "Couldn't find a main.rb file in the current directory, quitting...\n");
         mrb_close(mrb);
-        return 1;
+        return 0;
     }
 
     // Pass it to MRuby
-    mrb_load_file(mrb, ruby_file);
+    mrb_load_file(mrb, rubyFile);
 
-    fclose(ruby_file);
+    fclose(rubyFile);
     mrb_close(mrb);
     return 0;
 }
