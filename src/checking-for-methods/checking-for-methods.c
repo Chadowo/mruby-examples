@@ -15,7 +15,6 @@ static int check_method(mrb_state* mrb, char* method_name) {
 }
 
 mrb_value example_method(mrb_state* mrb, mrb_value self) {
-    
     // Empty method...
 
     return mrb_nil_value();
@@ -36,7 +35,7 @@ int main(int argc, char* argv[]) {
                       MRB_ARGS_NONE());
 
     // Checking for a method
-    if(check_method(mrb, "example_method") == 1) {
+    if(check_method(mrb, "example_method")) {
       printf("'example_method' found!\n");
     }
 
