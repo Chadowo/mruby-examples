@@ -82,13 +82,12 @@ int main(int argc, char *argv[]) {
     }
 
     struct RClass* carKlass = mrb_define_class(mrb, "Car", mrb->object_class);
-    MRB_SET_INSTANCE_TT(carKlass, MRB_TT_DATA); // Note this
+    MRB_SET_INSTANCE_TT(carKlass, MRB_TT_DATA);
 
     mrb_define_method(mrb, carKlass, "initialize", mrb_initialize_car, MRB_ARGS_REQ(2));
     mrb_define_method(mrb, carKlass, "summarize", mrb_summarize_car, MRB_ARGS_NONE());
 
-    // Now we're gonna create a Car object and call its 'summarize' method
-
+    // Now we're gonna create a Car object and call its 'summarize' method.
     // The args for the car's initialize
     const mrb_value args[2] = {
        mrb_str_new_cstr(mrb, "Red"), mrb_fixnum_value(50)
