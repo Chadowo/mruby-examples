@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.7)
 project(mruby-examples)
 
 # For all targets
-add_compile_options(-std=c99 -pedantic -Wall -Wshadow -Wpointer-arith 
+add_compile_options(-std=c99 -pedantic -Wall -Wshadow -Wpointer-arith
                     -Wcast-qual -Wstrict-prototypes -O2)
 
 set(EXAMPLES
@@ -12,7 +12,8 @@ set(EXAMPLES
   objects
   pushing-variables
   checking-for-methods
-  using-data)
+  call-methods
+  using-cdata)
 
 foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} src/${EXAMPLE}/${EXAMPLE}.c)
