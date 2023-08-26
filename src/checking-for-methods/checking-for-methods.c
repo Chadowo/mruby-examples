@@ -14,7 +14,7 @@ static int check_method(mrb_state* mrb, char* method_name) {
     return mrb_obj_respond_to(mrb, mrb->object_class, method_sym);
 }
 
-mrb_value example_method(mrb_state* mrb, mrb_value self) {
+mrb_value mrb_example_method(mrb_state* mrb, mrb_value self) {
     // Empty method...
 
     return mrb_nil_value();
@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     mrb_define_method(mrb,
                       mrb->kernel_module,
                       "example_method",
-                      example_method,
+                      mrb_example_method,
                       MRB_ARGS_NONE());
 
     // Checking for a method
