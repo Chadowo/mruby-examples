@@ -13,7 +13,7 @@
  *    end
  * end
  */
-static mrb_value human_new(mrb_state *mrb, mrb_value self) {
+static mrb_value mrb_human_new(mrb_state *mrb, mrb_value self) {
     mrb_value name;
     mrb_get_args(mrb, "S", &name);
 
@@ -37,7 +37,7 @@ static mrb_value human_new(mrb_state *mrb, mrb_value self) {
  * for an attribute reader, so this is not exactly like the above
  * ruby code!
  */
-static mrb_value human_greet(mrb_state *mrb, mrb_value self) {
+static mrb_value mrb_human_greet(mrb_state *mrb, mrb_value self) {
     mrb_value otherHuman;
     mrb_get_args(mrb, "o", &otherHuman);
 
@@ -69,8 +69,8 @@ int main(int argc, char* argv[]) {
 
     // We create our class, and define methods inside that same class.
     struct RClass* humanKlass = mrb_define_class(mrb, "Human", mrb->object_class);
-    mrb_define_method(mrb, humanKlass, "initialize", human_new, MRB_ARGS_REQ(1));
-    mrb_define_method(mrb, humanKlass, "greet", human_greet, MRB_ARGS_REQ(1));
+    mrb_define_method(mrb, humanKlass, "initialize", mrb_human_new, MRB_ARGS_REQ(1));
+    mrb_define_method(mrb, humanKlass, "greet", mrb_human_greet, MRB_ARGS_REQ(1));
 
     // Create some humans and make them greet each other!
     const char* code = "human1 = Human.new('John Doe')\n"
