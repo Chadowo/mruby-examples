@@ -26,6 +26,8 @@ static const mrb_data_type carType = {
     "Car", mrb_free
 };
 
+/* TODO: Really, this example isn't the best fit, how come you specify the car's
+ *       mileage?*/
 mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
     char* color;
     mrb_int mileage;
