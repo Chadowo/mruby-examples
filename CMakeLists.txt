@@ -13,7 +13,8 @@ set(EXAMPLES
   pushing-variables
   checking-for-methods
   call-methods
-  using-cdata)
+  using-cdata
+  kwargs)
 
 foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} src/${EXAMPLE}/${EXAMPLE}.c)
