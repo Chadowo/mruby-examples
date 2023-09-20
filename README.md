@@ -59,6 +59,8 @@ Examples found here in this project:
 
 - using-cdata/  
     Encapsulate C-data in a ruby object
+- kwargs/
+    Parse keyword arguments
 
 ## Credits
 
