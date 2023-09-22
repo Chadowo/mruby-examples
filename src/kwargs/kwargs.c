@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 #include <mruby.h>
+#include <mruby/string.h>
 #include <mruby/compile.h>
 
 /* Keyword arguments (also called keyword parameters) are a type of arguments
@@ -15,14 +16,13 @@
  * It doesn't really matter as long as the keyword's present.
  */
 
-/* This method uses 2 required kwargs (both integers):
+/* This method uses 2 required kwargs (both expected to be integers):
  *
- * method(foo:, bar:)
+ * kwargs_method(foo:, bar:)
  */
 static mrb_value mrb_kwargs_method(mrb_state* mrb, mrb_value self) {
     mrb_int kwNum = 2;
     mrb_int kwRequired = 2;
-
     mrb_sym kwNames[] = {
         mrb_intern_cstr(mrb, "foo"), mrb_intern_cstr(mrb, "bar")
     };
@@ -39,19 +39,55 @@ static mrb_value mrb_kwargs_method(mrb_state* mrb, mrb_value self) {
     return mrb_nil_value();
 }
 
-/* TODO: method with positional arguments and keyword arguments*/
+/* Positional and keyword arguments (not required):
+ *
+ * positional_kwargs_method(foo, bar, baz:, quux:)*/
+static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {
+    mrb_value foo;
+    mrb_float bar;
+
+    mrb_int kwNum = 2;
+    mrb_int kwRequired = 0;
+    mrb_sym kwNames[] = {
+        mrb_intern_cstr(mrb, "baz"), mrb_intern_cstr(mrb, "quux")
+    };
+
+    mrb_value kwValues[kwNum];
+    const mrb_kwargs kwArgs = { kwNum, kwRequired, kwNames, kwValues, NULL };
+
+    mrb_get_args(mrb, "Sf:", &foo, &bar, &kwArgs);
+
+    if(!mrb_undef_p(kwValues[0]) && !mrb_undef_p(kwValues[0])) {
+        printf("\nPositional argument foo: %s\nPositional argument bar: %f\n",
+               mrb_str_to_cstr(mrb, foo),
+               bar);
+        printf("Keyword argument baz: %ld\nKeyword argument quux: %ld\n",
+               mrb_fixnum(kwValues[0]),
+               mrb_fixnum(kwValues[1]));
+    }
+
+    return mrb_nil_value();
+}
+
+/* TODO: The same as above but with default values
+ * TODO: foo, bar, baz, etc. Are plain, it would be better to code based on a
+ *       example situation
+ */
 
 int main(int argc, char *argv[]) {
-    // Initiate mruby
     mrb_state* mrb = mrb_open();
     if(!mrb) {
         fprintf(stderr, "Couldn't initialize MRuby\n");
         return 1;
     }
 
-    mrb_define_method(mrb, mrb->kernel_module, "method", mrb_kwargs_method, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, mrb->kernel_module, "kwargs_method",
+                      mrb_kwargs_method, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, mrb->kernel_module, "positional_kwargs_method",
+                      mrb_positional_kwargs_method, MRB_ARGS_REQ(2) | MRB_ARGS_OPT(2));
 
-    mrb_load_string(mrb, "method(foo: 25, bar: 10)");
+    mrb_load_string(mrb, "kwargs_method(foo: 25, bar: 10)");
+    mrb_load_string(mrb, "positional_kwargs_method('hi', 2.5, baz: 100, quux: 200)");
 
     mrb_close(mrb);
     return 0;
