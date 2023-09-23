@@ -16,6 +16,10 @@
  * It doesn't really matter as long as the keyword's present.
  */
 
+/* TODO: foo, bar, baz, etc. Are plain, it would be better to code based on a
+ *       example situation
+ */
+
 /* This met hod uses 2 required kwargs (both expected to be integers):
  *
  * kwargs_method(foo:, bar:)
@@ -67,10 +71,31 @@ static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {
     return mrb_nil_value();
 }
 
-/* TODO: The same as above but with default values
- * TODO: foo, bar, baz, etc. Are plain, it would be better to code based on a
- *       example situation
+/* Keyword arguments with default values:
+ *
+ * default_kwargs_method(foo: "Hello", bar: "World")
  */
+static mrb_value mrb_default_kwargs_method(mrb_state* mrb, mrb_value self) {
+    mrb_int kwNum = 2;
+    mrb_int kwRequired = 0;
+    mrb_sym kwNames[] = {
+        mrb_intern_cstr(mrb, "foo"), mrb_intern_cstr(mrb, "bar")
+    };
+
+    mrb_value kwValues[kwNum];
+    const mrb_kwargs kwArgs = { kwNum, kwRequired, kwNames, kwValues, NULL };
+
+    mrb_get_args(mrb, ":", &kwArgs);
+
+    if(mrb_undef_p(kwValues[0])) { kwValues[0] = mrb_str_new_cstr(mrb, "Hello"); }
+    if(mrb_undef_p(kwValues[1])) { kwValues[1] = mrb_str_new_cstr(mrb, "World"); }
+
+    printf("\nKeyword argument foo: %s\nKeyword argument bar: %s\n",
+           mrb_str_to_cstr(mrb, kwValues[0]),
+           mrb_str_to_cstr(mrb, kwValues[1]));
+
+    return mrb_nil_value();
+}
 
 int main(int argc, char *argv[]) {
     mrb_state* mrb = mrb_open();
@@ -83,9 +108,12 @@ int main(int argc, char *argv[]) {
                       mrb_kwargs_method, MRB_ARGS_REQ(2));
     mrb_define_method(mrb, mrb->kernel_module, "positional_kwargs_method",
                       mrb_positional_kwargs_method, MRB_ARGS_REQ(2) | MRB_ARGS_OPT(2));
+    mrb_define_method(mrb, mrb->kernel_module, "default_kwargs_method",
+                      mrb_default_kwargs_method, MRB_ARGS_OPT(2));
 
     mrb_load_string(mrb, "kwargs_method(foo: 25, bar: 10)");
     mrb_load_string(mrb, "positional_kwargs_method('hi', 2.5, baz: 100, quux: 200)");
+    mrb_load_string(mrb, "default_kwargs_method(bar: 'To you!')");
 
     mrb_close(mrb);
     return 0;
