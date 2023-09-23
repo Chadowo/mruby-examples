@@ -16,7 +16,7 @@
  * It doesn't really matter as long as the keyword's present.
  */
 
-/* This method uses 2 required kwargs (both expected to be integers):
+/* This met hod uses 2 required kwargs (both expected to be integers):
  *
  * kwargs_method(foo:, bar:)
  */
@@ -57,7 +57,7 @@ static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {
 
     mrb_get_args(mrb, "Sf:", &foo, &bar, &kwArgs);
 
-    if(!mrb_undef_p(kwValues[0]) && !mrb_undef_p(kwValues[0])) {
+    if(!mrb_undef_p(kwValues[0]) && !mrb_undef_p(kwValues[1])) {
         printf("\nPositional argument foo: %s\nPositional argument bar: %f\n",
                mrb_str_to_cstr(mrb, foo),
                bar);
