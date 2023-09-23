@@ -39,7 +39,7 @@ static mrb_value mrb_kwargs_method(mrb_state* mrb, mrb_value self) {
     return mrb_nil_value();
 }
 
-/* Positional and keyword arguments (not required):
+/* Positional and keyword arguments (optional):
  *
  * positional_kwargs_method(foo, bar, baz:, quux:)*/
 static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {
@@ -57,10 +57,10 @@ static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {
 
     mrb_get_args(mrb, "Sf:", &foo, &bar, &kwArgs);
 
+    printf("\nPositional argument foo: %s\nPositional argument bar: %f\n",
+           mrb_str_to_cstr(mrb, foo), bar);
     if(!mrb_undef_p(kwValues[0]) && !mrb_undef_p(kwValues[1])) {
-        printf("\nPositional argument foo: %s\nPositional argument bar: %f\n",
-               mrb_str_to_cstr(mrb, foo), bar);
-        printf("Keyword argument baz: %ld\nKeyword argument quux: %ld\n",
+        printf("Optional keyword argument baz: %ld\nOptional keyword argument quux: %ld\n",
                mrb_fixnum(kwValues[0]), mrb_fixnum(kwValues[1]));
     }
 
