@@ -59,11 +59,9 @@ static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {
 
     if(!mrb_undef_p(kwValues[0]) && !mrb_undef_p(kwValues[1])) {
         printf("\nPositional argument foo: %s\nPositional argument bar: %f\n",
-               mrb_str_to_cstr(mrb, foo),
-               bar);
+               mrb_str_to_cstr(mrb, foo), bar);
         printf("Keyword argument baz: %ld\nKeyword argument quux: %ld\n",
-               mrb_fixnum(kwValues[0]),
-               mrb_fixnum(kwValues[1]));
+               mrb_fixnum(kwValues[0]), mrb_fixnum(kwValues[1]));
     }
 
     return mrb_nil_value();
