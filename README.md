@@ -26,7 +26,7 @@ That will install all the development headers needed to use MRuby.
 
 In the root of this repo:
 
-```
+```console
 mkdir build && cd build
 cmake ..
 make
