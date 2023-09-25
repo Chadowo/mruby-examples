@@ -63,6 +63,9 @@ Examples found here in this project:
 - kwargs/  
     Parse keyword arguments
 
+- blocks/  
+    Use blocks from various ways
+
 ## Credits
 
 Credits where due, here are some helpful articles/post/resources that helped
