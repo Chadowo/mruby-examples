@@ -14,7 +14,8 @@ set(EXAMPLES
   checking-for-methods
   call-methods
   using-cdata
-  kwargs)
+  kwargs
+  blocks)
 
 foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} src/${EXAMPLE}/${EXAMPLE}.c)
