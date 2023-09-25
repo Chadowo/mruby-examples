@@ -27,8 +27,9 @@ static const mrb_data_type carType = {
 };
 
 /* TODO: Really, this example isn't the best fit, how come you specify the car's
- *       mileage?*/
-mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
+ *       mileage?
+ */
+static mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
     char* color;
     mrb_int mileage;
 
@@ -62,7 +63,7 @@ mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
 /* This function will summarize the instance car attributes,
  * color and mileage. Thus demonstrating how to get the data
  * back */
-mrb_value mrb_summarize_car(mrb_state* mrb, mrb_value self) {
+static mrb_value mrb_summarize_car(mrb_state* mrb, mrb_value self) {
     // We initialize the struct that will hold our data
     carData* instanceCarData;
 
