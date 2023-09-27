@@ -1,10 +1,8 @@
 
 method_with_block do
-  puts 'Three times!'
+  puts 'This block will be called three times!'
 end
 
-str = 'hi'
-
-method_with_block_args do
-  puts 'hi'
+method_with_block_args do |name|
+  puts "Hello #{name}"
 end
