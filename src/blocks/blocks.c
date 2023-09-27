@@ -28,6 +28,8 @@ static mrb_value mrb_method_with_block_args(mrb_state* mrb, mrb_value self) {
     return self;
 }
 
+/* TODO: Blocks with multiple args */
+
 int main(int argc, char *argv[]) {
     mrb_state* mrb = mrb_open();
     if(!mrb) {
