@@ -10,10 +10,10 @@
  * Based on this marvelous article: https://dev.to/roryo/storing-c-data-in-an-mruby-class-50k4 */
 
 /* For demonstration purposes we'll work with a imaginary car
- * struct, it accepts a char* color and int mileage */
+ * struct, it accepts a char* for both color and type */
 typedef struct carData {
     char* color;
-    int mileage;
+    char* type;
 } carData;
 
 /* We need to note the datatype and the function we'll use
@@ -26,14 +26,11 @@ static const mrb_data_type carType = {
     "Car", mrb_free
 };
 
-/* TODO: Really, this example isn't the best fit, how come you specify the car's
- *       mileage?
- */
+/* Car constructor */
 static mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
-    char* color;
-    mrb_int mileage;
+    char* color, * type;
 
-    mrb_get_args(mrb, "zi", &color, &mileage);
+    mrb_get_args(mrb, "zz", &color, &type);
 
     // We initialize our data structure, DATA_PTR is a macro that gives us
     // a void*, we want that pointer to point to ourselves, and
@@ -52,7 +49,7 @@ static mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
 
     // Set the data
     instanceCarData->color = color;
-    instanceCarData->mileage = mileage;
+    instanceCarData->type = type;
 
     // And now we populate the data
     mrb_data_init(self, instanceCarData, &carType);
@@ -61,7 +58,7 @@ static mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
 }
 
 /* This function will summarize the instance car attributes,
- * color and mileage. Thus demonstrating how to get the data
+ * color and type. Thus demonstrating how to get the data
  * back */
 static mrb_value mrb_summarize_car(mrb_state* mrb, mrb_value self) {
     // We initialize the struct that will hold our data
@@ -70,9 +67,9 @@ static mrb_value mrb_summarize_car(mrb_state* mrb, mrb_value self) {
     // Get the data
     Data_Get_Struct(mrb, self, &carType, instanceCarData);
 
-    printf("The car color is: %s\nThe car mileage is: %d\n",
+    printf("The car's color is: %s\nThe car's type is: %s\n",
            instanceCarData->color,
-           instanceCarData->mileage);
+           instanceCarData->type);
 
     return self;
 }
@@ -93,13 +90,13 @@ int main(int argc, char *argv[]) {
     // Now we're gonna create a Car object and call its 'summarize' method.
     // The args for the car's initialize
     const mrb_value args[2] = {
-       mrb_str_new_cstr(mrb, "Red"), mrb_fixnum_value(50)
+       mrb_str_new_cstr(mrb, "Red"), mrb_str_new_cstr(mrb, "Sedan")
     };
 
     // Our car object
     mrb_value carObj = mrb_obj_new(mrb, carKlass, 2, args);
 
-    // Call the 'summarize' method
+    // Call the Car#summarize method
     mrb_funcall(mrb, carObj, "summarize", 0);
 
     mrb_close(mrb);
