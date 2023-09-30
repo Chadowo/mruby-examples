@@ -27,7 +27,7 @@ static const mrb_data_type carType = {
 };
 
 /* Car constructor */
-static mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
+static mrb_value mrb_car_new(mrb_state* mrb, mrb_value self) {
     char* color, * type;
 
     mrb_get_args(mrb, "zz", &color, &type);
@@ -60,7 +60,7 @@ static mrb_value mrb_initialize_car(mrb_state* mrb, mrb_value self) {
 /* This function will summarize the instance car attributes,
  * color and type. Thus demonstrating how to get the data
  * back */
-static mrb_value mrb_summarize_car(mrb_state* mrb, mrb_value self) {
+static mrb_value mrb_car_summarize(mrb_state* mrb, mrb_value self) {
     // We initialize the struct that will hold our data
     carData* instanceCarData;
 
@@ -84,8 +84,8 @@ int main(int argc, char *argv[]) {
     struct RClass* carKlass = mrb_define_class(mrb, "Car", mrb->object_class);
     MRB_SET_INSTANCE_TT(carKlass, MRB_TT_DATA);
 
-    mrb_define_method(mrb, carKlass, "initialize", mrb_initialize_car, MRB_ARGS_REQ(2));
-    mrb_define_method(mrb, carKlass, "summarize", mrb_summarize_car, MRB_ARGS_NONE());
+    mrb_define_method(mrb, carKlass, "initialize", mrb_car_new, MRB_ARGS_REQ(2));
+    mrb_define_method(mrb, carKlass, "summarize", mrb_car_summarize, MRB_ARGS_NONE());
 
     // Now we're gonna create a Car object and call its 'summarize' method.
     // The args for the car's initialize
