@@ -24,7 +24,7 @@ sudo dnf install mruby-devel
 Pacman:  
 ```console
 sudo pacman -S mruby
-```  
+```
 
 That will install all the development headers needed to use MRuby.
 
