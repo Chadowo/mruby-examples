@@ -12,13 +12,19 @@ If you are on linux chances are MRuby is already in the package repositories of 
 your distro specific package manager to install it. E.g:
 
 APT:  
-`sudo apt install libmruby-dev`
+```console
+sudo apt install libmruby-dev
+```
 
 DNF:  
-`sudo dnf install mruby-devel`
+```console
+sudo dnf install mruby-devel
+```
 
 Pacman:  
-`sudo pacman -S mruby`
+```console
+sudo pacman -S mruby
+```
 
 That will install all the development headers needed to use MRuby.
 
