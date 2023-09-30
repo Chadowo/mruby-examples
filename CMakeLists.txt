@@ -1,10 +1,7 @@
-cmake_minimum_required(VERSION 3.7)
+cmake_minimum_required(VERSION 3.1...3.7)
 
-project(mruby-examples)
-
-# For all targets
-add_compile_options(-std=c99 -pedantic -Wall -Wshadow -Wpointer-arith
-                    -Wcast-qual -Wstrict-prototypes -O2)
+project(mruby-examples
+        LANGUAGES C)
 
 set(EXAMPLES
   hello-world
@@ -16,6 +13,13 @@ set(EXAMPLES
   using-cdata
   kwargs
   blocks)
+
+set(CMAKE_C_STANDARD 99)
+set(WARNINGS -pedantic -Wall -Wshadow -Wpointer-arith
+             -Wno-missing-braces -Wcast-qual -Wstrict-prototypes)
+
+# For all targets
+add_compile_options(${WARNINGS})
 
 foreach(EXAMPLE ${EXAMPLES})
   add_executable(${EXAMPLE} src/${EXAMPLE}/${EXAMPLE}.c)
