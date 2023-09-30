@@ -34,18 +34,17 @@ int main(int argc, char* argv[]) {
                    mrb_float_value(mrb, 50.55));
 
     // Module variables (AKA class variables but on a module)
-    // (Excellent naming by the way)
-    struct RClass* barfooModule = mrb_define_module(mrb, "Barfoo");
+    struct RClass* foobazModule = mrb_define_module(mrb, "Foobaz");
 
     mrb_mod_cv_set(mrb,
-                   barfooModule,
+                   foobazModule,
                    mrb_intern_lit(mrb, "@@quux"),
                    mrb_float_value(mrb, 15.0));
 
     // We can also get the variables we defined, for example; getting the
     // module variable @@quux
     mrb_value quuxCvar = mrb_cv_get(mrb,
-                                     mrb_obj_value(barfooModule),
+                                     mrb_obj_value(foobazModule),
                                      mrb_intern_lit(mrb, "@@quux"));
 
     printf("@@quux: %f\n", mrb_float(quuxCvar));
