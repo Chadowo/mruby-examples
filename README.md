@@ -45,31 +45,31 @@ root.
 
 Examples found here in this project:
 
-- hello-world/  
+- [hello-world/](src/hello-world/)  
     Simple hello world
 
-- hello-file/  
+- [hello-file/](src/hello-file/)  
     Load ruby code from a file
 
-- pushing-variables/  
+- [pushing-variables/](src/pushing-variables/)  
     Push various datatypes to Ruby land
 
-- objects/  
+- [objects/](src/objects/)  
     Create classes/objects from C
 
-- checking-for-methods/  
+- [checking-for-methods/](src/checking-for-methods/)  
     Try to find methods in Ruby land
 
-- call-methods/  
+- [call-methods/](src/call-methods/)  
     Calling methods in Ruby land from C land
 
-- using-cdata/  
+- [using-cdata/](src/using-cdata/)  
     Encapsulate C-data in a ruby object
 
-- kwargs/  
+- [kwargs/](src/kwargs/)  
     Parse keyword arguments
 
-- blocks/  
+- [blocks/](src/blocks)  
     Use blocks from various ways
 
 ## Credits
