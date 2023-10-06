@@ -1,6 +1,6 @@
 # MRuby Examples
 
-MRuby examples to demonstrate usage
+MRuby examples to demonstrate usage.
 
 ## Compiling
 
