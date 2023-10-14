@@ -4,15 +4,15 @@ project(mruby-examples
         LANGUAGES C)
 
 set(EXAMPLES
-  hello-world
-  hello-file
-  objects
-  pushing-variables
-  checking-for-methods
-  call-methods
-  using-cdata
-  kwargs
-  blocks)
+    hello-world
+    hello-file
+    objects
+    pushing-variables
+    checking-for-methods
+    call-methods
+    using-cdata
+    kwargs
+    blocks)
 
 set(CMAKE_C_STANDARD 99)
 set(WARNINGS -pedantic -Wall -Wshadow -Wpointer-arith
