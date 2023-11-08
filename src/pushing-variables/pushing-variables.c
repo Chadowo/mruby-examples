@@ -64,8 +64,8 @@ int main(int argc, char* argv[]) {
     // We can also get the variables we defined, for example; getting the
     // module variable @@quux
     mrb_float quuxCvar = mrb_float(mrb_cv_get(mrb,
-                                   mrb_obj_value(foobazModule),
-                                   mrb_intern_lit(mrb, "@@quux")));
+                                              mrb_obj_value(foobazModule),
+                                              mrb_intern_lit(mrb, "@@quux")));
 
     printf("@@quux: %f\n", quuxCvar);
 
