@@ -8,7 +8,7 @@ MRuby examples to demonstrate usage.
 
 Make sure to have [MRuby](https://mruby.org/) installed, see [here](https://github.com/mruby/mruby#how-to-get-mruby).
 
-If you are on linux chances are MRuby is already in the package repositories of your distro! then you'll need to use
+If you are on Linux chances are MRuby is already in the package repositories of your favorite distro! then you'll need to use
 your distro specific package manager to install it. E.g:
 
 APT:  
@@ -37,9 +37,6 @@ mkdir build && cd build
 cmake ..
 make
 ```
-
-The final executables will be found in the `bin/` directory relative to the repo
-root.
 
 ## Summary
 
