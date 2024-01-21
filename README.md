@@ -40,32 +40,24 @@ make
 
 ## Summary
 
-Examples found here in this project:
+Examples included here:
 
 - [hello-world/](src/hello-world/)  
     Simple hello world
-
 - [hello-file/](src/hello-file/)  
     Load ruby code from a file
-
 - [pushing-variables/](src/pushing-variables/)  
     Push various datatypes to Ruby land
-
 - [objects/](src/objects/)  
     Create classes/objects from C
-
 - [checking-for-methods/](src/checking-for-methods/)  
     Try to find methods in Ruby land
-
 - [call-methods/](src/call-methods/)  
     Calling methods in Ruby land from C land
-
 - [using-cdata/](src/using-cdata/)  
     Encapsulate C-data in a ruby object
-
 - [kwargs/](src/kwargs/)  
     Parse keyword arguments
-
 - [blocks/](src/blocks)  
     Use blocks from various ways
 
@@ -76,3 +68,7 @@ me to learn how to use MRuby:
 
 - [Executing Ruby code with MRuby](https://mruby.org/docs/articles/executing-ruby-code-with-mruby.html)
 - [MRuby GUI series](https://dev.to/roryo/a-new-smalltalk-style-environment-for-ruby-5f5c)
+
+## License
+
+All the examples found here are licensed under the [MIT License](/LICENSE).
