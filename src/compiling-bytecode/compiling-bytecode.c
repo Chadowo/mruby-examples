@@ -18,6 +18,12 @@ int main(int argc, char *argv[]) {
 
     // Prepare our files
     FILE* input = fopen("input.rb", "r");
+    if(!input) {
+        fprintf(stderr,
+                "Couldn't find input.rb current directory, quitting...\n");
+        mrb_close(mrb);
+        return 1;
+    }
     FILE* output = fopen("output.mrb", "wb");
 
     struct mrbc_context* cxt;
