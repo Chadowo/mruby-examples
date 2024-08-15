@@ -8,7 +8,7 @@ set(EXAMPLES
     hello-file
     objects
     pushing-variables
-    checking-for-methods
+    method-defined
     call-methods
     using-cdata
     kwargs
