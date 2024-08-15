@@ -33,7 +33,7 @@ static mrb_value mrb_human_new(mrb_state *mrb, mrb_value self) {
  *   end
  * end
  *
- * NOTE: since we're using the mruby api there's no need
+ * NOTE: since we're using the MRuby API there's no need
  * for an attribute reader, so this is not exactly like the above
  * ruby code!
  */
@@ -42,9 +42,9 @@ static mrb_value mrb_human_greet(mrb_state *mrb, mrb_value self) {
     mrb_get_args(mrb, "o", &otherHuman);
 
     // Our greeting will look as follows:
-    // Hello there #{other human name}
+    // 'Hello there #{other human name}'
     //
-    // so, we'll need the other human's instance name
+    // so, we'll need to know the other human's instance name
 
     // Grab the other human's name
     mrb_value otherName = mrb_iv_get(mrb, otherHuman, mrb_intern_lit(mrb, "@name"));
@@ -67,7 +67,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // We create our class, and define methods inside that same class.
+    // We create our class, and define the methods for it
     struct RClass* humanKlass = mrb_define_class(mrb, "Human", mrb->object_class);
     mrb_define_method(mrb, humanKlass, "initialize", mrb_human_new, MRB_ARGS_REQ(1));
     mrb_define_method(mrb, humanKlass, "greet", mrb_human_greet, MRB_ARGS_REQ(1));

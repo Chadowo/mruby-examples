@@ -3,7 +3,7 @@
 #include <mruby.h>
 #include <mruby/compile.h>
 
-/* Loading ruby code from a file */
+/* Loading Ruby code from a file */
 int main(int argc, char *argv[]) {
     mrb_state* mrb = mrb_open();
     if(!mrb) {

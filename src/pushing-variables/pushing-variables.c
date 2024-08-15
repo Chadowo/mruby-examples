@@ -5,6 +5,10 @@
 #include <mruby/variable.h>
 #include <mruby/value.h>
 
+/* This sample program shows you how to push various tipes of
+ * variables to Ruby
+ * TODO: Get the variables and print them */
+
 /* Simply set an integer as ivar */
 static mrb_value mrb_foobar_new(mrb_state* mrb, mrb_value self) {
     mrb_int num;
@@ -16,9 +20,6 @@ static mrb_value mrb_foobar_new(mrb_state* mrb, mrb_value self) {
     return self;
 }
 
-/* This sample program shows you how to push various tipes of
- * variables to ruby
- * TODO: Get the variables and print them */
 int main(int argc, char* argv[]) {
     mrb_state* mrb = mrb_open();
     if(!mrb) {
@@ -26,7 +27,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    // Pushing variables to ruby is relatively easy, here we define a constant,
+    // Pushing variables to Ruby is relatively easy, here we define a constant,
     // FOO, with the integer value 42
     mrb_define_const(mrb, mrb->kernel_module, "FOO", mrb_fixnum_value(42));
 
@@ -53,7 +54,7 @@ int main(int argc, char* argv[]) {
                    mrb_intern_lit(mrb, "@@baz"),
                    mrb_float_value(mrb, 50.55));
 
-    // Module variables (AKA class variables but on a module)
+    // Module variables (class variables but on a module)
     struct RClass* foobazModule = mrb_define_module(mrb, "Foobaz");
 
     mrb_mod_cv_set(mrb,
@@ -61,7 +62,7 @@ int main(int argc, char* argv[]) {
                    mrb_intern_lit(mrb, "@@quux"),
                    mrb_float_value(mrb, 15.0));
 
-    // We can also get the variables we defined, for example; getting the
+    // We can also get the variables we defined, for example: getting the
     // module variable @@quux
     mrb_float quuxCvar = mrb_float(mrb_cv_get(mrb,
                                               mrb_obj_value(foobazModule),

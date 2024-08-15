@@ -3,7 +3,7 @@
 #include <mruby.h>
 #include <mruby/value.h>
 
-/* This function will perform a search in the ruby side for the method that
+/* This function will perform a search in the Ruby side for the method that
    you that'd specify it to. A return value of 1 means that it was found, 0
    the opposite */
 static int check_method(mrb_state* mrb, char* method_name) {

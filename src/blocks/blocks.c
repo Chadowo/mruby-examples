@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // For this example we will use a ruby file
+    // For this example we will use a Ruby file
     FILE* rubyScript = fopen("main.rb", "r");
     if(!rubyScript) {
         fprintf(stderr,

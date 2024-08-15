@@ -16,11 +16,7 @@
  * It doesn't really matter as long as the keyword's present.
  */
 
-/* TODO: foo, bar, baz, etc. Are plain, it would be better to code based on a
- *       example situation
- */
-
-/* This met hod uses 2 required kwargs (both expected to be integers):
+/* This method uses 2 required kwargs (both expected to be integers):
  *
  * kwargs_method(foo:, bar:)
  */
@@ -43,7 +39,7 @@ static mrb_value mrb_kwargs_method(mrb_state* mrb, mrb_value self) {
     return mrb_nil_value();
 }
 
-/* Positional and keyword arguments (optional):
+/* Positional and (optional) keyword arguments:
  *
  * positional_kwargs_method(foo, bar, baz:, quux:)*/
 static mrb_value mrb_positional_kwargs_method(mrb_state* mrb, mrb_value self) {

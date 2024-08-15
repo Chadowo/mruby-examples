@@ -37,8 +37,8 @@ int main(int argc, char *argv[]) {
     //       https://github.com/mruby/mruby/blob/master/src/error.c#L264
     mrb_p(mrb, mrb_format(mrb, "Reversed string: %v", reversedString));
 
-    // For the sake of completeness let's also call a class method, for a simple
-    // one let's get the square root of 16
+    // For the sake of completeness let's also call a class method, like
+    // Math#sqrt
     mrb_value mathMod = mrb_obj_value(mrb_module_get(mrb, "Math"));
     mrb_value result = mrb_funcall(mrb, mathMod, "sqrt", 1, mrb_fixnum_value(16));
     mrb_p(mrb, mrb_format(mrb, "Result of Math.sqrt(16): %v", result));

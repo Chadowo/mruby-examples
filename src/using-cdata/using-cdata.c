@@ -96,7 +96,7 @@ int main(int argc, char *argv[]) {
     // Our car object
     mrb_value carObj = mrb_obj_new(mrb, carKlass, 2, args);
 
-    // Call the Car#summarize method
+    // Call the summarize method
     mrb_funcall(mrb, carObj, "summarize", 0);
 
     mrb_close(mrb);
