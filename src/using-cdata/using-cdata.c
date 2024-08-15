@@ -37,8 +37,7 @@ static mrb_value mrb_car_new(mrb_state* mrb, mrb_value self) {
     // cast it to a carData
     carData* instanceCarData = (carData *)DATA_PTR(self);
 
-    // If there's a pointer already associated to this instance,
-    // free it
+    // If there's a pointer already associated to this instance, free it
     if(instanceCarData) { mrb_free(mrb, instanceCarData); }
 
     // Initialize the data
