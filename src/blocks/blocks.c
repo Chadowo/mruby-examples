@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr,
                 "Couldn't find a main.rb file in the current directory, quitting...\n");
         mrb_close(mrb);
-        return 0;
+        return 1;
     }
 
     mrb_define_method(mrb, mrb->kernel_module, "method_with_block",
