@@ -12,7 +12,8 @@ set(EXAMPLES
     call-methods
     using-cdata
     kwargs
-    blocks)
+    blocks
+    compiling-bytecode)
 
 set(CMAKE_C_STANDARD 99)
 set(WARNINGS -pedantic -Wall -Wshadow -Wpointer-arith

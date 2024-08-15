@@ -61,6 +61,9 @@ Examples included here:
 - [blocks/](src/blocks)  
     Use blocks from various ways
 
+- [compiling-bytecode/](src/compiling-bytecode)  
+    Compile Ruby code into bytecode format and save it on the disk
+
 ## Credits
 
 Credits where due, here are some helpful articles/post/resources that helped
