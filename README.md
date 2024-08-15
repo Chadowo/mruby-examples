@@ -39,26 +39,18 @@ cmake --build build
 
 Examples included here:
 
-- [hello-world/](src/hello-world/)  
-    Simple hello world
-- [hello-file/](src/hello-file/)  
-    Load ruby code from a file
-- [pushing-variables/](src/pushing-variables/)  
-    Push various datatypes to Ruby land
-- [objects/](src/objects/)  
-    Create classes/objects from C
-- [checking-for-methods/](src/checking-for-methods/)  
-    Try to find methods in Ruby land
-- [call-methods/](src/call-methods/)  
-    Calling methods in Ruby land from C land
-- [using-cdata/](src/using-cdata/)  
-    Encapsulate C-data in a ruby object
-- [kwargs/](src/kwargs/)  
-    Parse keyword arguments
-- [blocks/](src/blocks)  
-    Use blocks from various ways
-- [compiling-bytecode/](src/compiling-bytecode)  
-    Compile Ruby code into bytecode format and save it on the disk
+| Example | Description |
+| ------- | ----------- |
+| [hello-world](src/hello-world/) | Classic hello world |
+| [hello-file](src/hello-file/) | Load and execute Ruby code from a file |
+| [pushing-variables](src/pushing-variables/) | Define various types of variables from C to Ruby |
+| [objects](src/objects/)  | Create classes & objects from C |
+| [method-defined](src/method-defined/) | Check if a certain method is defined on Ruby |
+| [call-methods](src/call-methods/) | Call Ruby methods from C |
+| [using-cdata](src/using-cdata/) | Wrap C data inside a Ruby object |
+| [kwargs](src/kwargs/) | Parse keyword arguments |
+| [blocks](src/blocks/) | Interact with Ruby's block from C |
+| [compiling-bytecode](src/compiling-bytecode/) | Compile Ruby code into bytecode format and save it on the disk |
 
 ## Credits
 
