@@ -1,15 +1,15 @@
 # MRuby Examples
 
-MRuby examples to demonstrate usage.
+Collection of [MRuby](https://mruby.org/) sample programs.
 
-## Compiling
+## Build
 
 ### Get MRuby
 
-Make sure to have [MRuby](https://mruby.org/) installed, see [here](https://github.com/mruby/mruby#how-to-get-mruby).
+Make sure you've got MRuby installed, see [here](https://github.com/mruby/mruby#how-to-get-mruby).
 
-If you are on Linux chances are MRuby is already in the package repositories of your favorite distro! then you'll need to use
-your distro specific package manager to install it. E.g:
+> [!TIP]
+> If you are on Linux chances are MRuby is already in the package repositories of your favorite distro! then you'll need to use your distro specific package manager to install it. E.g:
 
 APT:  
 ```console
@@ -26,16 +26,13 @@ Pacman:
 sudo pacman -S mruby
 ```
 
-That will install all the development headers needed to use MRuby.
+### Compiling
 
-### Build
-
-In the root of this repo:
+Use the followings commands
 
 ```console
-mkdir build && cd build
-cmake ..
-make
+cmake -S . -B build
+cmake --build build
 ```
 
 ## Summary
@@ -60,7 +57,6 @@ Examples included here:
     Parse keyword arguments
 - [blocks/](src/blocks)  
     Use blocks from various ways
-
 - [compiling-bytecode/](src/compiling-bytecode)  
     Compile Ruby code into bytecode format and save it on the disk
 
