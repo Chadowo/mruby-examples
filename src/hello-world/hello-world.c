@@ -6,8 +6,8 @@
 /* Basic hello world with MRuby */
 int main(int argc, char *argv[]) {
     // Initiate MRuby
-    mrb_state* mrb = mrb_open();
-    if(!mrb) {
+    mrb_state *mrb = mrb_open();
+    if (!mrb) {
         fprintf(stderr, "Couldn't initialize MRuby\n");
         return 1;
     }
