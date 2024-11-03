@@ -38,7 +38,9 @@ int main(int argc, char *argv[]) {
     struct RProc *proc = mrb_proc_ptr(result);
     const mrb_irep *irep = proc->body.irep;
 
-    mrb_dump_irep_binary(mrb, irep, MRB_DUMP_DEBUG_INFO, output);
+    // NOTE: DUMP_DEBUG_INFO is deprecated and used only for compatibility, in newer
+    //       MRuby you should use MRB_DUMP_DEBUG_INFO
+    mrb_dump_irep_binary(mrb, irep, DUMP_DEBUG_INFO, output);
 
     fclose(output);
     mrb_close(mrb);
