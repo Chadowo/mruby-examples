@@ -1,0 +1,17 @@
+AlignAfterOpenBracket: Align
+AlignEscapedNewlines: Left
+AlignOperands: 'true'
+AlignTrailingComments: 'true'
+AllowShortIfStatementsOnASingleLine: Never
+AlwaysBreakAfterDefinitionReturnType: None
+ColumnLimit: '120'
+IndentWidth: '4'
+MaxEmptyLinesToKeep: '1'
+PointerAlignment: Right
+SortUsingDeclarations: 'true'
+SpaceInEmptyParentheses: 'false'
+SpacesBeforeTrailingComments: '1'
+SpacesInAngles: 'false'
+SpacesInParentheses: 'false'
+TabWidth: 4
+UseTab: Never
