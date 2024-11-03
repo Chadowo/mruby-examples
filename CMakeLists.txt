@@ -19,22 +19,22 @@ set(CMAKE_C_STANDARD 99)
 set(WARNINGS -pedantic -Wall -Wshadow -Wpointer-arith
              -Wno-missing-braces -Wcast-qual -Wstrict-prototypes)
 
-# For all targets
-add_compile_options(${WARNINGS})
-
 foreach(EXAMPLE ${EXAMPLES})
+  set(OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${EXAMPLE}")
+
   add_executable(${EXAMPLE} src/${EXAMPLE}/${EXAMPLE}.c)
 
   set_target_properties(${EXAMPLE}
-                        PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/${EXAMPLE}")
+                        PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIRECTORY})
 
-  # Copy ruby files (if any) to the example bin dir
+  # Copy Ruby files (if any) to the example's output directory
   file(GLOB RUBY_FILES
        "src/${EXAMPLE}/*.rb")
   file(COPY ${RUBY_FILES}
-       DESTINATION ${CMAKE_SOURCE_DIR}/bin/${EXAMPLE})
+       DESTINATION ${OUTPUT_DIRECTORY})
 
-  target_link_libraries(${EXAMPLE} PUBLIC -lmruby -lm)
+  target_compile_options(${EXAMPLE} PRIVATE ${WARNINGS})
+  target_link_libraries(${EXAMPLE} PRIVATE -lmruby -lm)
 endforeach()
 
 message(STATUS "Binaries will be placed on the bin/ directory relative to the project root")
