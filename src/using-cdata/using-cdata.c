@@ -21,7 +21,7 @@ typedef struct carData {
  * identifier, the class name suffices for that, if you use
  * custom allocated resources for your data then you'll need
  * to define a custom free function that frees your resources,
- * however since we don't do that free we can just call mrb_free */
+ * however since we don't do that we can just call mrb_free */
 static const mrb_data_type carType = { "Car", mrb_free };
 
 /* Car constructor */
