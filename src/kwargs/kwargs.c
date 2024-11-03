@@ -23,10 +23,10 @@
 static mrb_value mrb_kwargs_method(mrb_state *mrb, mrb_value self) {
     mrb_int kwNum = 2;
     mrb_int kwRequired = 2;
-    mrb_sym kwNames[] = {mrb_intern_cstr(mrb, "foo"), mrb_intern_cstr(mrb, "bar")};
+    mrb_sym kwNames[] = { mrb_intern_cstr(mrb, "foo"), mrb_intern_cstr(mrb, "bar") };
 
     mrb_value kwValues[kwNum];
-    const mrb_kwargs kwArgs = {kwNum, kwRequired, kwNames, kwValues, NULL};
+    const mrb_kwargs kwArgs = { kwNum, kwRequired, kwNames, kwValues, NULL };
 
     mrb_get_args(mrb, ":", &kwArgs);
 
@@ -44,10 +44,10 @@ static mrb_value mrb_positional_kwargs_method(mrb_state *mrb, mrb_value self) {
 
     mrb_int kwNum = 2;
     mrb_int kwRequired = 0;
-    mrb_sym kwNames[] = {mrb_intern_cstr(mrb, "baz"), mrb_intern_cstr(mrb, "quux")};
+    mrb_sym kwNames[] = { mrb_intern_cstr(mrb, "baz"), mrb_intern_cstr(mrb, "quux") };
 
     mrb_value kwValues[kwNum];
-    const mrb_kwargs kwArgs = {kwNum, kwRequired, kwNames, kwValues, NULL};
+    const mrb_kwargs kwArgs = { kwNum, kwRequired, kwNames, kwValues, NULL };
 
     mrb_get_args(mrb, "Sf:", &foo, &bar, &kwArgs);
 
@@ -67,10 +67,10 @@ static mrb_value mrb_positional_kwargs_method(mrb_state *mrb, mrb_value self) {
 static mrb_value mrb_default_kwargs_method(mrb_state *mrb, mrb_value self) {
     mrb_int kwNum = 2;
     mrb_int kwRequired = 0;
-    mrb_sym kwNames[] = {mrb_intern_cstr(mrb, "foo"), mrb_intern_cstr(mrb, "bar")};
+    mrb_sym kwNames[] = { mrb_intern_cstr(mrb, "foo"), mrb_intern_cstr(mrb, "bar") };
 
     mrb_value kwValues[kwNum];
-    const mrb_kwargs kwArgs = {kwNum, kwRequired, kwNames, kwValues, NULL};
+    const mrb_kwargs kwArgs = { kwNum, kwRequired, kwNames, kwValues, NULL };
 
     mrb_get_args(mrb, ":", &kwArgs);
 

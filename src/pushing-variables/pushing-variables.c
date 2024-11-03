@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
     mrb_define_method(mrb, foobarKlass, "initialize", mrb_foobar_new, MRB_ARGS_REQ(1));
 
     // Create the object
-    mrb_value args[1] = {mrb_fixnum_value(1500)};
+    mrb_value args[1] = { mrb_fixnum_value(1500) };
     mrb_value obj = mrb_obj_new(mrb, foobarKlass, 1, args);
 
     // Get the ivar

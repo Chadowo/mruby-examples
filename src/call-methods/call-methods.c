@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     // first we create our object, in this case a descendant of the string class
 
     // We need an array of mrb_values to pass it to the constructor of the class
-    mrb_value args[1] = {mrb_str_new_cstr(mrb, "Test string")};
+    mrb_value args[1] = { mrb_str_new_cstr(mrb, "Test string") };
     mrb_value obj = mrb_obj_new(mrb, mrb->string_class, 1, args);
 
     // And here it comes the important bit, calling the function

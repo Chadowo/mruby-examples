@@ -22,7 +22,7 @@ typedef struct carData {
  * custom allocated resources for your data then you'll need
  * to define a custom free function that frees your resources,
  * however since we don't do that free we can just call mrb_free */
-static const mrb_data_type carType = {"Car", mrb_free};
+static const mrb_data_type carType = { "Car", mrb_free };
 
 /* Car constructor */
 static mrb_value mrb_car_new(mrb_state *mrb, mrb_value self) {
@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 
     // Now we're gonna create a Car object and call its 'summarize' method.
     // The args for the car's initialize
-    const mrb_value args[2] = {mrb_str_new_cstr(mrb, "Red"), mrb_str_new_cstr(mrb, "Sedan")};
+    const mrb_value args[2] = { mrb_str_new_cstr(mrb, "Red"), mrb_str_new_cstr(mrb, "Sedan") };
 
     // Our car object
     mrb_value carObj = mrb_obj_new(mrb, carKlass, 2, args);
